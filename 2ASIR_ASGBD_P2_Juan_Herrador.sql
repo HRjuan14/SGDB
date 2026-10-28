@@ -1,26 +1,39 @@
 ##Parte 2
 
-SELECT a.nombre, f.nombre AS fabricante
-FROM articulos a
-INNER JOIN fabricantes f
-    ON a.fabricante_id = f.id
-WHERE a.precio > 100.00;
+-- Consulta 1
+SELECT articulos.nombre, fabricantes.nombre
+FROM articulos
+JOIN fabricantes ON articulos.fabricante_id = fabricantes.id
+WHERE articulos.precio > 100;
 
 
--- Consulta 2: Todos los fabricantes y sus artículos,
--- incluidos los fabricantes sin artículos
-SELECT f.nombre AS fabricante, a.nombre AS articulo
-FROM fabricantes f
-LEFT JOIN articulos a
-    ON f.id = a.fabricante_id;
+-- Consulta 4
+SELECT reparaciones.descripcion_averia,
+       reparaciones.coste_reparacion,
+       tecnicos.nombre
+FROM reparaciones
+JOIN tecnicos ON reparaciones.tecnico_id = tecnicos.id
+ORDER BY reparaciones.coste_reparacion DESC;
 
 
--- Consulta 3: Fabricantes cuya media de precios
--- supera los 150 euros
-SELECT f.nombre AS fabricante,
-       AVG(a.precio) AS precio_medio
-FROM fabricantes f
-INNER JOIN articulos a
-    ON f.id = a.fabricante_id
-GROUP BY f.id, f.nombre
-HAVING AVG(a.precio) > 150.00;
+-- Consulta 7
+SELECT articulos.nombre, fabricantes.nombre
+FROM articulos
+JOIN fabricantes ON articulos.fabricante_id = fabricantes.id
+WHERE fabricantes.pais = 'Estados Unidos'
+   OR fabricantes.pais = 'Taiwán';
+
+
+-- Consulta 9
+SELECT fabricantes.nombre, COUNT(articulos.id)
+FROM fabricantes
+JOIN articulos ON fabricantes.id = articulos.fabricante_id
+GROUP BY fabricantes.id
+HAVING COUNT(articulos.id) >= 2;
+
+
+-- Consulta 5
+SELECT tecnicos.nombre
+FROM tecnicos
+LEFT JOIN reparaciones ON tecnicos.id = reparaciones.tecnico_id
+WHERE reparaciones.id IS NULL;
