@@ -1,4 +1,4 @@
-
+# Parte 2
 -- Consulta 1
 SELECT articulos.nombre, fabricantes.nombre
 FROM articulos
