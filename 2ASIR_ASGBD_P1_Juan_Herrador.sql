@@ -1,6 +1,6 @@
 -- =============================================================================
 -- Practica 2 ASGBD - Creacion de Tablas y Consultas
--- Nombre: [Tu Nombre y Apellidos]
+-- Nombre: [Juan Herrador Rello]
 -- Curso: 2º ASIR
 -- =============================================================================
 
