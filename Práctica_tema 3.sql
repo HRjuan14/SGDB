@@ -38,6 +38,8 @@ FROM tecnicos;
 -- Concecemos exclusivamente los permisos SELECT de la vista
 GRAND SELECT ON v_tecnicos_activos TO gestor_tienda;
 
+
+
 -- Tarea 4: Consistencia y control con WITH CHECK OPTION
 
 CREATE VIEW v_articulos_gama_baja AS 
