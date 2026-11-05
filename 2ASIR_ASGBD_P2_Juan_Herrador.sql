@@ -5,8 +5,8 @@ FROM articulos
 JOIN fabricantes ON articulos.fabricante_id = fabricantes.id
 WHERE articulos.precio > 100;
 
--- Consulta 2: Todos los fabricantes y sus artículos
-SELECT fabricantes.nombre, articulos.nombre
+-- Consulta 2: 
+SELECT fabricantes_nombre, articulos_nombre
 FROM fabricantes
 LEFT JOIN articulos ON fabricantes.id = articulos.fabricante_id;
 
