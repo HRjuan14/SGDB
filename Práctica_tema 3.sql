@@ -24,7 +24,7 @@ CREATE ROLE 'rol_consultor';
 GRAND SELECT ON tienda_informatica.* TO 'rol_consultor';
 
 -- Darle el Rol al usuario auditor_externo
-GRAND 'rol_consultor' TO 'auditor_externo'@'%'
+GRAND 'rol_consultor' TO 'auditor_externo'@'%';
 
 
 
@@ -40,3 +40,11 @@ GRAND SELECT ON v_tecnicos_activos TO gestor_tienda;
 
 -- Tarea 4: Consistencia y control con WITH CHECK OPTION
 
+CREATE VIEW v_articulos_gama_baja AS 
+SELECT precio FROM articulos
+WHERE precio <= 50.00
+WITH CHECK OPTION;
+
+
+
+-- Tarea 5: Auditoría, Resolución de Incidencias y Reflexión Crítica (Apartado de Análisis y Razonamiento)
